@@ -119,24 +119,7 @@
 		DA8890541B22D7700071A646 /* DYTableViewTest */ = {
 			isa = PBXGroup;
 			children = (
-				DAF3CB5D1B22E39300DB8E8B /* CoreTextData.h */,
-				DAF3CB5E1B22E39300DB8E8B /* CoreTextData.m */,
-				DAF3CB5F1B22E39300DB8E8B /* CoreTextImageData.h */,
-				DAF3CB601B22E39300DB8E8B /* CoreTextImageData.m */,
-				DAF3CB611B22E39300DB8E8B /* CoreTextLinkData.h */,
-				DAF3CB621B22E39300DB8E8B /* CoreTextLinkData.m */,
-				DAF3CB631B22E39300DB8E8B /* CoreTextUtils.h */,
-				DAF3CB641B22E39300DB8E8B /* CoreTextUtils.m */,
-				DAF3CB651B22E39300DB8E8B /* CTDisplayView.h */,
-				DAF3CB661B22E39400DB8E8B /* CTDisplayView.m */,
-				DAF3CB671B22E39400DB8E8B /* CTFrameParser.h */,
-				DAF3CB681B22E39400DB8E8B /* CTFrameParser.m */,
-				DAF3CB691B22E39400DB8E8B /* CTFrameParserConfig.h */,
-				DAF3CB6A1B22E39400DB8E8B /* CTFrameParserConfig.m */,
-				DAF3CB6B1B22E39400DB8E8B /* MagnifiterView.h */,
-				DAF3CB6C1B22E39400DB8E8B /* MagnifiterView.m */,
-				DAF3CB6D1B22E39400DB8E8B /* UIView+frameAdjust.h */,
-				DAF3CB6E1B22E39400DB8E8B /* UIView+frameAdjust.m */,
+				DAC96C511B22F9890079AB02 /* lib */,
 				DAF3CB551B22E2D500DB8E8B /* CommentModel.h */,
 				DAF3CB561B22E2D500DB8E8B /* CommentModel.m */,
 				DAF3CB571B22E2D500DB8E8B /* DYTableViewCell.h */,
@@ -178,6 +161,47 @@
 				DA8890701B22D7710071A646 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAC96C511B22F9890079AB02 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				DAC96C531B22F9BA0079AB02 /* view */,
+				DAC96C521B22F9970079AB02 /* model */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		DAC96C521B22F9970079AB02 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				DAF3CB5D1B22E39300DB8E8B /* CoreTextData.h */,
+				DAF3CB5E1B22E39300DB8E8B /* CoreTextData.m */,
+				DAF3CB5F1B22E39300DB8E8B /* CoreTextImageData.h */,
+				DAF3CB601B22E39300DB8E8B /* CoreTextImageData.m */,
+				DAF3CB611B22E39300DB8E8B /* CoreTextLinkData.h */,
+				DAF3CB621B22E39300DB8E8B /* CoreTextLinkData.m */,
+				DAF3CB631B22E39300DB8E8B /* CoreTextUtils.h */,
+				DAF3CB641B22E39300DB8E8B /* CoreTextUtils.m */,
+				DAF3CB671B22E39400DB8E8B /* CTFrameParser.h */,
+				DAF3CB681B22E39400DB8E8B /* CTFrameParser.m */,
+				DAF3CB691B22E39400DB8E8B /* CTFrameParserConfig.h */,
+				DAF3CB6A1B22E39400DB8E8B /* CTFrameParserConfig.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		DAC96C531B22F9BA0079AB02 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				DAF3CB6B1B22E39400DB8E8B /* MagnifiterView.h */,
+				DAF3CB6C1B22E39400DB8E8B /* MagnifiterView.m */,
+				DAF3CB651B22E39300DB8E8B /* CTDisplayView.h */,
+				DAF3CB661B22E39400DB8E8B /* CTDisplayView.m */,
+				DAF3CB6D1B22E39400DB8E8B /* UIView+frameAdjust.h */,
+				DAF3CB6E1B22E39400DB8E8B /* UIView+frameAdjust.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
