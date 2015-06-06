@@ -14,6 +14,18 @@
 		DA8890631B22D7700071A646 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8890621B22D7700071A646 /* Images.xcassets */; };
 		DA8890661B22D7700071A646 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA8890641B22D7700071A646 /* LaunchScreen.xib */; };
 		DA8890721B22D7710071A646 /* DYTableViewTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8890711B22D7710071A646 /* DYTableViewTestTests.m */; };
+		DAF3CB591B22E2D500DB8E8B /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB561B22E2D500DB8E8B /* CommentModel.m */; };
+		DAF3CB5A1B22E2D500DB8E8B /* DYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB581B22E2D500DB8E8B /* DYTableViewCell.m */; };
+		DAF3CB6F1B22E39400DB8E8B /* CoreTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB5E1B22E39300DB8E8B /* CoreTextData.m */; };
+		DAF3CB701B22E39400DB8E8B /* CoreTextImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB601B22E39300DB8E8B /* CoreTextImageData.m */; };
+		DAF3CB711B22E39400DB8E8B /* CoreTextLinkData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB621B22E39300DB8E8B /* CoreTextLinkData.m */; };
+		DAF3CB721B22E39400DB8E8B /* CoreTextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB641B22E39300DB8E8B /* CoreTextUtils.m */; };
+		DAF3CB731B22E39400DB8E8B /* CTDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB661B22E39400DB8E8B /* CTDisplayView.m */; };
+		DAF3CB741B22E39400DB8E8B /* CTFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB681B22E39400DB8E8B /* CTFrameParser.m */; };
+		DAF3CB751B22E39400DB8E8B /* CTFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB6A1B22E39400DB8E8B /* CTFrameParserConfig.m */; };
+		DAF3CB761B22E39400DB8E8B /* MagnifiterView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB6C1B22E39400DB8E8B /* MagnifiterView.m */; };
+		DAF3CB771B22E39400DB8E8B /* UIView+frameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF3CB6E1B22E39400DB8E8B /* UIView+frameAdjust.m */; };
+		DAF3CB7E1B22E54C00DB8E8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF3CB7D1B22E54C00DB8E8B /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +52,30 @@
 		DA88906B1B22D7710071A646 /* DYTableViewTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DYTableViewTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8890701B22D7710071A646 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA8890711B22D7710071A646 /* DYTableViewTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYTableViewTestTests.m; sourceTree = "<group>"; };
+		DAF3CB551B22E2D500DB8E8B /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		DAF3CB561B22E2D500DB8E8B /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
+		DAF3CB571B22E2D500DB8E8B /* DYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYTableViewCell.h; sourceTree = "<group>"; };
+		DAF3CB581B22E2D500DB8E8B /* DYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYTableViewCell.m; sourceTree = "<group>"; };
+		DAF3CB5D1B22E39300DB8E8B /* CoreTextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextData.h; sourceTree = "<group>"; };
+		DAF3CB5E1B22E39300DB8E8B /* CoreTextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextData.m; sourceTree = "<group>"; };
+		DAF3CB5F1B22E39300DB8E8B /* CoreTextImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextImageData.h; sourceTree = "<group>"; };
+		DAF3CB601B22E39300DB8E8B /* CoreTextImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextImageData.m; sourceTree = "<group>"; };
+		DAF3CB611B22E39300DB8E8B /* CoreTextLinkData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextLinkData.h; sourceTree = "<group>"; };
+		DAF3CB621B22E39300DB8E8B /* CoreTextLinkData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextLinkData.m; sourceTree = "<group>"; };
+		DAF3CB631B22E39300DB8E8B /* CoreTextUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextUtils.h; sourceTree = "<group>"; };
+		DAF3CB641B22E39300DB8E8B /* CoreTextUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextUtils.m; sourceTree = "<group>"; };
+		DAF3CB651B22E39300DB8E8B /* CTDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDisplayView.h; sourceTree = "<group>"; };
+		DAF3CB661B22E39400DB8E8B /* CTDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDisplayView.m; sourceTree = "<group>"; };
+		DAF3CB671B22E39400DB8E8B /* CTFrameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFrameParser.h; sourceTree = "<group>"; };
+		DAF3CB681B22E39400DB8E8B /* CTFrameParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFrameParser.m; sourceTree = "<group>"; };
+		DAF3CB691B22E39400DB8E8B /* CTFrameParserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFrameParserConfig.h; sourceTree = "<group>"; };
+		DAF3CB6A1B22E39400DB8E8B /* CTFrameParserConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFrameParserConfig.m; sourceTree = "<group>"; };
+		DAF3CB6B1B22E39400DB8E8B /* MagnifiterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagnifiterView.h; sourceTree = "<group>"; };
+		DAF3CB6C1B22E39400DB8E8B /* MagnifiterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnifiterView.m; sourceTree = "<group>"; };
+		DAF3CB6D1B22E39400DB8E8B /* UIView+frameAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frameAdjust.h"; sourceTree = "<group>"; };
+		DAF3CB6E1B22E39400DB8E8B /* UIView+frameAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frameAdjust.m"; sourceTree = "<group>"; };
+		DAF3CB7C1B22E4BA00DB8E8B /* DYTableViewTest-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DYTableViewTest-Prefix.pch"; sourceTree = "<group>"; };
+		DAF3CB7D1B22E54C00DB8E8B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAF3CB7E1B22E54C00DB8E8B /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +103,7 @@
 				DA8890541B22D7700071A646 /* DYTableViewTest */,
 				DA88906E1B22D7710071A646 /* DYTableViewTestTests */,
 				DA8890531B22D7700071A646 /* Products */,
+				DAF3CB7D1B22E54C00DB8E8B /* CoreGraphics.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +119,28 @@
 		DA8890541B22D7700071A646 /* DYTableViewTest */ = {
 			isa = PBXGroup;
 			children = (
+				DAF3CB5D1B22E39300DB8E8B /* CoreTextData.h */,
+				DAF3CB5E1B22E39300DB8E8B /* CoreTextData.m */,
+				DAF3CB5F1B22E39300DB8E8B /* CoreTextImageData.h */,
+				DAF3CB601B22E39300DB8E8B /* CoreTextImageData.m */,
+				DAF3CB611B22E39300DB8E8B /* CoreTextLinkData.h */,
+				DAF3CB621B22E39300DB8E8B /* CoreTextLinkData.m */,
+				DAF3CB631B22E39300DB8E8B /* CoreTextUtils.h */,
+				DAF3CB641B22E39300DB8E8B /* CoreTextUtils.m */,
+				DAF3CB651B22E39300DB8E8B /* CTDisplayView.h */,
+				DAF3CB661B22E39400DB8E8B /* CTDisplayView.m */,
+				DAF3CB671B22E39400DB8E8B /* CTFrameParser.h */,
+				DAF3CB681B22E39400DB8E8B /* CTFrameParser.m */,
+				DAF3CB691B22E39400DB8E8B /* CTFrameParserConfig.h */,
+				DAF3CB6A1B22E39400DB8E8B /* CTFrameParserConfig.m */,
+				DAF3CB6B1B22E39400DB8E8B /* MagnifiterView.h */,
+				DAF3CB6C1B22E39400DB8E8B /* MagnifiterView.m */,
+				DAF3CB6D1B22E39400DB8E8B /* UIView+frameAdjust.h */,
+				DAF3CB6E1B22E39400DB8E8B /* UIView+frameAdjust.m */,
+				DAF3CB551B22E2D500DB8E8B /* CommentModel.h */,
+				DAF3CB561B22E2D500DB8E8B /* CommentModel.m */,
+				DAF3CB571B22E2D500DB8E8B /* DYTableViewCell.h */,
+				DAF3CB581B22E2D500DB8E8B /* DYTableViewCell.m */,
 				DA8890591B22D7700071A646 /* AppDelegate.h */,
 				DA88905A1B22D7700071A646 /* AppDelegate.m */,
 				DA88905C1B22D7700071A646 /* ViewController.h */,
@@ -98,6 +158,7 @@
 			children = (
 				DA8890561B22D7700071A646 /* Info.plist */,
 				DA8890571B22D7700071A646 /* main.m */,
+				DAF3CB7C1B22E4BA00DB8E8B /* DYTableViewTest-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -219,9 +280,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAF3CB701B22E39400DB8E8B /* CoreTextImageData.m in Sources */,
+				DAF3CB771B22E39400DB8E8B /* UIView+frameAdjust.m in Sources */,
+				DAF3CB721B22E39400DB8E8B /* CoreTextUtils.m in Sources */,
+				DAF3CB761B22E39400DB8E8B /* MagnifiterView.m in Sources */,
 				DA88905E1B22D7700071A646 /* ViewController.m in Sources */,
+				DAF3CB591B22E2D500DB8E8B /* CommentModel.m in Sources */,
+				DAF3CB711B22E39400DB8E8B /* CoreTextLinkData.m in Sources */,
+				DAF3CB751B22E39400DB8E8B /* CTFrameParserConfig.m in Sources */,
 				DA88905B1B22D7700071A646 /* AppDelegate.m in Sources */,
+				DAF3CB731B22E39400DB8E8B /* CTDisplayView.m in Sources */,
+				DAF3CB5A1B22E2D500DB8E8B /* DYTableViewCell.m in Sources */,
 				DA8890581B22D7700071A646 /* main.m in Sources */,
+				DAF3CB741B22E39400DB8E8B /* CTFrameParser.m in Sources */,
+				DAF3CB6F1B22E39400DB8E8B /* CoreTextData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +419,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DYTableViewTest/DYTableViewTest-Prefix.pch";
 				INFOPLIST_FILE = DYTableViewTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +431,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DYTableViewTest/DYTableViewTest-Prefix.pch";
 				INFOPLIST_FILE = DYTableViewTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -416,6 +492,7 @@
 				DA8890771B22D7710071A646 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA8890781B22D7710071A646 /* Build configuration list for PBXNativeTarget "DYTableViewTestTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +501,7 @@
 				DA88907A1B22D7710071A646 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
