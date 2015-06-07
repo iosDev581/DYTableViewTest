@@ -1,14 +1,14 @@
 //
-//  CTFrameParserConfig.h
-//  CoreTextDemo
+//  GoRichViewConfig.h
+//  DYTableViewTest
 //
-//  Created by TangQiao on 13-12-7.
-//  Copyright (c) 2013年 TangQiao. All rights reserved.
+//  Created by tony on 15/6/7.
+//  Copyright (c) 2015年 launch.com. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface CTFrameParserConfig : NSObject
+@interface GoRichViewConfig : NSObject
 
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat fontSize;

@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "DYTableViewCell.h"
-#import "CommentModel.h"
+#import "TestTableViewCell.h"
+#import "GoCommentModel.h"
 
 #define UIScreenHeight [UIScreen mainScreen].bounds.size.height
 #define UIScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -25,6 +25,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    GoCommentModel *commentModel = [[GoCommentModel alloc] init];
+    commentModel.fName = @"张三张三张三张三张三张三张三张三三张三张三张三三张三张三张三三张三张三张三三张三张三张三三张三张三张三";
+    commentModel.tName = @"李四李四李四李四李四李四";
+    commentModel.content = @"前面前面前面前面前面前面ttttttttsdfaeatesttttttttttttsdfaeatesttt 前面前面前面前面 前面前面前面前面ttt 前面 前面    前面前面前面前面前面前面前面前面 中间 中间ttttttttttttsdfaeatesttttttttttttsdfaeatesttttttttttttsdfaeatestttt前面前面前面前面前面！！！！";
+    commentModel.fUserId = @"123";
+    commentModel.tUserId = @"456";
+    _models = @[commentModel];
+    
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, UIScreenWidth, UIScreenHeight - 64.0) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     _tableView.backgroundColor = [UIColor clearColor];
@@ -32,15 +41,6 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
-    
-    CommentModel *commentModel = [[CommentModel alloc] init];
-    commentModel.fName = @"张三";
-    commentModel.tName = @"李四";
-    commentModel.content = @"testtttttttttttsdfaea";
-    commentModel.fUserId = @"123";
-    commentModel.tUserId = @"456";
-    _models = @[commentModel];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,16 +58,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [DYTableViewCell heightForCommentModel:[_models firstObject]];
-//    return 44.f;
+    return ([TestTableViewCell heightForCommentModel:[_models firstObject]]);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellId = @"DYTableViewCell";
-    DYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    TestTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (!cell) {
-        cell = [[DYTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell = [[TestTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     [cell setupByCommentModel:[_models firstObject]];

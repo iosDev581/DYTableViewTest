@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CommentModel : NSObject
+@interface GoCommentModel : NSObject
 
 @property (nonatomic, strong) NSString *fName;
 @property (nonatomic, strong) NSString *tName;

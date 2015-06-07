@@ -7,57 +7,11 @@
 //
 
 #import "GoCommentRichView.h"
-
-@interface GoCommentRichViewDataSourceImage : NSObject
-
-@property (strong, nonatomic) NSString * name;
-@property (nonatomic) int position;
-// 此坐标是 CoreText 的坐标系，而不是UIKit的坐标系
-@property (nonatomic) CGRect imagePosition;
-
-@end
-
-@implementation GoCommentRichViewDataSourceImage
-
-@end
-
-@interface GoCommentRichViewDataSourceComment : NSObject
-
-@property (strong, nonatomic) NSString *fName;
-@property (strong, nonatomic) NSString *tName;
-
-@property (strong, nonatomic) NSString *fUserId;
-@property (strong, nonatomic) NSString *tUserId;
-
-@property (strong, nonatomic) NSString *content;
-
-@property (nonatomic) NSRange fNameRange;
-@property (nonatomic) NSRange tNameRange;
-
-@end
-
-@implementation GoCommentRichViewDataSourceComment
-
-@end
-
-@interface GoCommentRichViewDataSource : NSObject
-
-@property (assign, nonatomic) CTFrameRef ctFrame;
-@property (assign, nonatomic) CGFloat height;
-@property (strong, nonatomic) NSArray *imageArray;
-@property (strong, nonatomic) NSArray *commentArray;
-
-@property (strong, nonatomic) NSAttributedString *content;
-
-@end
-
-@implementation GoCommentRichViewDataSource
-
-@end
+#import "GoRichViewParser.h"
 
 @interface GoCommentRichView ()
 
-@property (nonatomic, strong) GoCommentRichViewDataSource *dataSource;
+@property (nonatomic, strong) GoRichViewCommentData *commentData;
 
 @end
 
@@ -72,7 +26,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        [self setupEvents];
+        [self setBackgroundColor:[UIColor lightGrayColor]];
+        [self setupEvents];
     }
     return self;
 }
@@ -86,117 +41,119 @@
     return self;
 }
 
+- (void)setupEvents {
+    UIGestureRecognizer * tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                  action:@selector(userLongPressedGuestureDetected:)];
+    [self addGestureRecognizer:tapRecognizer];
+    
+//    UIGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+//                                                                                             action:@selector(userLongPressedGuestureDetected:)];
+//    [self addGestureRecognizer:longPressRecognizer];
+    
+//    UIGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
+//                                                                                 action:@selector(userPanGuestureDetected:)];
+//    [self addGestureRecognizer:panRecognizer];
+    self.userInteractionEnabled = YES;
+}
+
 - (void)drawRect:(CGRect)rect
 {
-    if (_dataSource) {
-        
+    [super drawRect:rect];
+    if (_commentData) {
+
         CGContextRef context = UIGraphicsGetCurrentContext();
         CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-        CGContextTranslateCTM(context, 0, _dataSource.height);
+        CGContextTranslateCTM(context, 0, _commentData.height);
         CGContextScaleCTM(context, 1.0, -1.0);
         
-        CTFrameDraw(_dataSource.ctFrame, context);
+        CTFrameDraw(_commentData.ctFrame, context);
     }
 }
 
-+ (CGFloat)heightForCommentModel:(CommentModel *)commentModel
++ (CGFloat)heightForCommentModel:(GoCommentModel *)commentModel
 {
-    GoCommentRichViewDataSource *dataSource = [GoCommentRichView dataSourceByCommentModel:commentModel];
-    return dataSource.height;
+    GoRichViewConfig *config = [[GoRichViewConfig alloc] init];
+    config.width = [UIScreen mainScreen].bounds.size.width;
+    
+    GoRichViewCommentData *commentData = [GoRichViewParser parseCommentModel:commentModel config:config];
+    return commentData.height;
 }
 
-- (void)setupByCommentModel:(CommentModel *)commentModel
+- (void)setupByCommentModel:(GoCommentModel *)commentModel
 {
-    _dataSource = [GoCommentRichView dataSourceByCommentModel:commentModel];
+    GoRichViewConfig *config = [[GoRichViewConfig alloc] init];
+    config.width = [UIScreen mainScreen].bounds.size.width;
+    
+    _commentData = [GoRichViewParser parseCommentModel:commentModel config:config];
     [self setNeedsDisplay];
+    
+    CGRect frame = self.frame;
+    frame.size.height = _commentData.height;
+    self.frame = frame;
 }
 
-+ (GoCommentRichViewDataSource *)dataSourceByCommentModel:(CommentModel *)commentModel
+- (void)userTapGestureDetected:(UIGestureRecognizer *)recognizer
 {
-//    NSMutableArray *imageArray = [NSMutableArray array];
-    NSMutableArray *commentArray = [NSMutableArray array];
+//    CGPoint point = [recognizer locationInView:self];
     
-    NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
-    if ([commentModel.fName length] > 0) {
-        NSDictionary *config = [GoCommentRichView attributesConfig];
-        NSAttributedString *nameAttriString = [[NSAttributedString alloc] initWithString:commentModel.fName attributes:config];
-        [result appendAttributedString:nameAttriString];
+//    for (CoreTextImageData * imageData in self.data.imageArray) {
+//        // 翻转坐标系，因为imageData中的坐标是CoreText的坐标系
+//        CGRect imageRect = imageData.imagePosition;
+//        CGPoint imagePosition = imageRect.origin;
+//        imagePosition.y = self.bounds.size.height - imageRect.origin.y - imageRect.size.height;
+//        CGRect rect = CGRectMake(imagePosition.x, imagePosition.y, imageRect.size.width, imageRect.size.height);
+//        // 检测点击位置 Point 是否在rect之内
+//        if (CGRectContainsPoint(rect, point)) {
+//            NSLog(@"hint image");
+//            // 在这里处理点击后的逻辑
+//            NSDictionary *userInfo = @{ @"imageData": imageData };
+//            [[NSNotificationCenter defaultCenter] postNotificationName:CTDisplayViewImagePressedNotification
+//                                                                object:self userInfo:userInfo];
+//            return;
+//        }
         
-        GoCommentRichViewDataSourceComment *comment = [[GoCommentRichViewDataSourceComment alloc] init];
-        comment.fName = commentModel.fName;
-        comment.fUserId = commentModel.fUserId;
-        comment.fNameRange = NSMakeRange(0, [commentModel.fName length]);
-        [commentArray addObject:comment];
+//        CoreTextLinkData *linkData = [CoreTextUtils touchLinkInView:self atPoint:point data:self.data];
+//        if (linkData) {
+//            NSLog(@"hint link!");
+//            NSDictionary *userInfo = @{ @"linkData": linkData };
+//            [[NSNotificationCenter defaultCenter] postNotificationName:CTDisplayViewLinkPressedNotification
+//                                                                object:self userInfo:userInfo];
+//            return;
+//        }
+//        CoreTextCommentData *commentData = [CoreTextUtils touchCommentInView:self atPoint:point data:self.data];
+//        if (commentData) {
+//            NSLog(@"commentData = %@", commentData);
+//        }
+    
         
-        if ([commentModel.tName length] > 0) {
-            [result appendAttributedString:[[NSAttributedString alloc] initWithString:@"---"]];
-            
-            nameAttriString = [[NSAttributedString alloc] initWithString:commentModel.tName attributes:config];
-            [result appendAttributedString:nameAttriString];
-            
-            comment.tName = commentModel.tName;
-            comment.tUserId = commentModel.tUserId;
-            comment.tNameRange = NSMakeRange([commentModel.fName length] + 3, [commentModel.tName length]);
-        }
-    }
-    
-    if ([commentModel.content length] > 0) {
-        [result appendAttributedString:[[NSAttributedString alloc] initWithString:commentModel.content]];
-    }
-    
-    // 创建CTFramesetterRef实例
-    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)result);
-    
-    // 获得要缓制的区域的高度
-    CGSize restrictSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, CGFLOAT_MAX);
-    CGSize coreTextSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0,0), nil, restrictSize, nil);
-    CGFloat textHeight = coreTextSize.height;
-    
-    // 生成CTFrameRef实例
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathAddRect(path, NULL, CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, textHeight));
-    
-    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, NULL);
-    CFRelease(path);
-    
-    // 将生成好的CTFrameRef实例和计算好的缓制高度保存到CoreTextData实例中，最后返回CoreTextData实例
-    GoCommentRichViewDataSource *dataSource = [[GoCommentRichViewDataSource alloc] init];
-    dataSource.ctFrame = frame;
-    dataSource.height = textHeight;
-    dataSource.content = result;
-    dataSource.commentArray = commentArray;
-    
-    // 释放内存
-    CFRelease(frame);
-    CFRelease(framesetter);
-    
-    return dataSource;
+//    }
+//else {
+//        self.state = CTDisplayViewStateNormal;
+//    }
 }
 
-+ (NSMutableDictionary *)attributesConfig {
-    CGFloat fontSize = 14.f;
-    CTFontRef fontRef = CTFontCreateWithName((CFStringRef)@"ArialMT", fontSize, NULL);
-    CGFloat lineSpacing = 3.f;
-    const CFIndex kNumberOfSettings = 3;
-    CTParagraphStyleSetting theSettings[kNumberOfSettings] = {
-        { kCTParagraphStyleSpecifierLineSpacingAdjustment, sizeof(CGFloat), &lineSpacing },
-        { kCTParagraphStyleSpecifierMaximumLineSpacing, sizeof(CGFloat), &lineSpacing },
-        { kCTParagraphStyleSpecifierMinimumLineSpacing, sizeof(CGFloat), &lineSpacing }
-    };
-    
-    CTParagraphStyleRef theParagraphRef = CTParagraphStyleCreate(theSettings, kNumberOfSettings);
-    
-    UIColor * textColor = [UIColor redColor];
-    
-    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-    dict[(id)kCTForegroundColorAttributeName] = (id)textColor.CGColor;
-    dict[(id)kCTFontAttributeName] = (__bridge id)fontRef;
-    dict[(id)kCTParagraphStyleAttributeName] = (__bridge id)theParagraphRef;
-    
-    CFRelease(theParagraphRef);
-    CFRelease(fontRef);
-    return dict;
+- (void)userLongPressedGuestureDetected:(UILongPressGestureRecognizer *)recognizer {
+//    CGPoint point = [recognizer locationInView:self];
+//    debugMethod();
+//    debugLog(@"state = %d", recognizer.state);
+//    debugLog(@"point = %@", NSStringFromCGPoint(point));
+//    if (recognizer.state == UIGestureRecognizerStateBegan ||
+//        recognizer.state == UIGestureRecognizerStateChanged) {
+//        CFIndex index = [CoreTextUtils touchContentOffsetInView:self atPoint:point data:self.data];
+//        if (index != -1 && index < self.data.content.length) {
+//            _selectionStartPosition = index;
+//            _selectionEndPosition = index + 2;
+//        }
+//        self.magnifierView.touchPoint = point;
+//        self.state = CTDisplayViewStateTouching;
+//    } else {
+//        if (_selectionStartPosition >= 0 && _selectionEndPosition <= self.data.content.length) {
+//            self.state = CTDisplayViewStateSelecting;
+//            [self showMenuController];
+//        } else {
+//            self.state = CTDisplayViewStateNormal;
+//        }
+//    }
 }
-
 
 @end

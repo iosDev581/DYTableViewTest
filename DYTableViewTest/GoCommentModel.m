@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 launch.com. All rights reserved.
 //
 
-#import "CommentModel.h"
+#import "GoCommentModel.h"
 
-@implementation CommentModel
+@implementation GoCommentModel
 
 @end
