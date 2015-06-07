@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA18CE511B23EDE2000C9971 /* GoCommentRichView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA18CE501B23EDE2000C9971 /* GoCommentRichView.m */; };
 		DA8890581B22D7700071A646 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8890571B22D7700071A646 /* main.m */; };
 		DA88905B1B22D7700071A646 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA88905A1B22D7700071A646 /* AppDelegate.m */; };
 		DA88905E1B22D7700071A646 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA88905D1B22D7700071A646 /* ViewController.m */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA18CE4F1B23EDE2000C9971 /* GoCommentRichView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoCommentRichView.h; sourceTree = "<group>"; };
+		DA18CE501B23EDE2000C9971 /* GoCommentRichView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoCommentRichView.m; sourceTree = "<group>"; };
 		DA8890521B22D7700071A646 /* DYTableViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYTableViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8890561B22D7700071A646 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA8890571B22D7700071A646 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 				DAF3CB561B22E2D500DB8E8B /* CommentModel.m */,
 				DAF3CB571B22E2D500DB8E8B /* DYTableViewCell.h */,
 				DAF3CB581B22E2D500DB8E8B /* DYTableViewCell.m */,
+				DA18CE4F1B23EDE2000C9971 /* GoCommentRichView.h */,
+				DA18CE501B23EDE2000C9971 /* GoCommentRichView.m */,
 				DA8890591B22D7700071A646 /* AppDelegate.h */,
 				DA88905A1B22D7700071A646 /* AppDelegate.m */,
 				DA88905C1B22D7700071A646 /* ViewController.h */,
@@ -317,6 +322,7 @@
 				DAF3CB5A1B22E2D500DB8E8B /* DYTableViewCell.m in Sources */,
 				DA8890581B22D7700071A646 /* main.m in Sources */,
 				DAF3CB741B22E39400DB8E8B /* CTFrameParser.m in Sources */,
+				DA18CE511B23EDE2000C9971 /* GoCommentRichView.m in Sources */,
 				DAF3CB6F1B22E39400DB8E8B /* CoreTextData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
