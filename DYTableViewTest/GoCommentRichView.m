@@ -232,15 +232,22 @@ typedef NS_ENUM(NSInteger, GoCommentRichViewState) {
 {
     CGPoint point = [recognizer locationInView:self];
     debugMethod();
-    debugLog(@"state = %d", recognizer.state);
+//    debugLog(@"state = %d", recognizer.state);
     debugLog(@"point = %@", NSStringFromCGPoint(point));
     
     CFIndex index = [GoCommentRichView touchContentOffsetInView:self atPoint:point data:self.commentData];
     if (index != -1 && index < self.commentData.content.length) {
-        _selectionStartPosition = index;
-        _selectionEndPosition = index + 2;
+        // 根据index获取对应的model
+        for (GoRichViewCommentContentData *data in _commentData.commentsArray) {
+            NSRange range = data.totalRange;
+            if (index >= range.location && index < range.location + range.length) {
+                _selectionStartPosition = range.location;
+                _selectionEndPosition = _selectionStartPosition + range.length;
+                self.state = GoCommentRichViewStateTouching;
+                break;
+            }
+        }
     }
-    self.state = GoCommentRichViewStateTouching;
     
 //    if (recognizer.state == UIGestureRecognizerStateBegan ||
 //        recognizer.state == UIGestureRecognizerStateChanged) {
@@ -322,6 +329,20 @@ typedef NS_ENUM(NSInteger, GoCommentRichViewState) {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetFillColorWithColor(context, bgColor.CGColor);
     CGContextFillRect(context, rect);
+    
+////    __block UIColor *bgColor = RGB(204, 221, 236);
+////    CGContextRef context = UIGraphicsGetCurrentContext();
+//    [UIView animateWithDuration:0.2f animations:^{
+//        UIColor *bgColor = RGB(204, 221, 236);
+//        CGContextRef context = UIGraphicsGetCurrentContext();
+//        CGContextSetFillColorWithColor(context, bgColor.CGColor);
+//        CGContextFillRect(context, rect);
+//    } completion:^(BOOL finished) {
+//        CGContextRef context = UIGraphicsGetCurrentContext();
+//        UIColor * bgColor = [UIColor whiteColor];
+//        CGContextSetFillColorWithColor(context, bgColor.CGColor);
+//        CGContextFillRect(context, rect);
+//    }];
 }
 
 @end

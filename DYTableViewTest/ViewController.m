@@ -29,14 +29,14 @@
     GoCommentModel *commentModel1 = [[GoCommentModel alloc] init];
     commentModel1.fName = @"张三";
     commentModel1.tName = @"李四";
-    commentModel1.content = @"内容张三李四张三李四张三李四张三李四张三李四张三李四张三李四张三李abc";
+    commentModel1.content = @"123456789123456789123456789132456789123456789";
     commentModel1.fUserId = @"123";
     commentModel1.tUserId = @"456";
     
     GoCommentModel *commentModel2 = [[GoCommentModel alloc] init];
     commentModel2.fName = @"张三";
     commentModel2.tName = @"王五";
-    commentModel2.content = @"内容张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三";
+    commentModel2.content = @"123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789";
     commentModel2.fUserId = @"123";
     commentModel2.tUserId = @"456";
     

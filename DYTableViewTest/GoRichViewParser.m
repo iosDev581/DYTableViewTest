@@ -43,6 +43,7 @@
     NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
 
     GoRichViewCommentContentData *comment = nil;
+    NSRange totalRange = NSMakeRange(0, 0);
     NSDictionary *attriDict = [GoRichViewParser attributesWithConfig:config];
     
     for (int i = 0; i < commentModels.count; i++) {
@@ -61,8 +62,10 @@
             comment = [[GoRichViewCommentContentData alloc] init];
             comment.fName = commentModel.fName;
             comment.fUserId = commentModel.fUserId;
-            comment.fRange = NSMakeRange(0, [commentModel.fName length]);
+            comment.fRange = NSMakeRange(location, [commentModel.fName length]);
             [commentArray addObject:comment];
+            
+            totalRange = NSMakeRange(location, comment.fRange.length);
             
             if ([commentModel.tName length] > 0) {
                 
@@ -74,27 +77,34 @@
                 
                 comment.tName = commentModel.tName;
                 comment.tUserId = commentModel.tUserId;
-                comment.tRange = NSMakeRange([commentModel.fName length] + 2, [commentModel.tName length]);
+                comment.tRange = NSMakeRange(comment.fRange.location + comment.fRange.length + 2, [commentModel.tName length]);
+                totalRange = NSMakeRange(location, comment.fRange.length + 2 + comment.tRange.length);
+                
+//                comment.tRange = NSMakeRange([commentModel.fName length] + 2, [commentModel.tName length]);
             }
             
             if ([result length] > 0) {
                 NSMutableDictionary * dict = [NSMutableDictionary dictionary];
                 dict[(id)kCTForegroundColorAttributeName] = (id)[UIColor blueColor].CGColor;
 
-                NSRange range = NSMakeRange(location + comment.fRange.location, comment.fRange.length);
-                [result addAttribute:(id)kCTForegroundColorAttributeName value:(id)[UIColor blueColor].CGColor range:range];
+//                NSRange range = NSMakeRange(location + comment.fRange.location, comment.fRange.length);
+                [result addAttribute:(id)kCTForegroundColorAttributeName value:(id)[UIColor blueColor].CGColor range:comment.fRange];
                 
                 if ([comment.tName length] > 0) {
-                    range = NSMakeRange(location + comment.tRange.location, comment.tRange.length);
-                    [result addAttribute:(id)kCTForegroundColorAttributeName value:(id)[UIColor blueColor].CGColor range:range];
+//                    range = NSMakeRange(location + comment.tRange.location, comment.tRange.length);
+                    [result addAttribute:(id)kCTForegroundColorAttributeName value:(id)[UIColor blueColor].CGColor range:comment.tRange];
                 }
             }
         }
         
+        
         if ([commentModel.content length] > 0) {
-            //        [contentStr appendString:commentModel.content];
+            comment.content = commentModel.content;
+            totalRange = NSMakeRange(location, comment.fRange.length + 2 + comment.tRange.length + [comment.content length]);
             [result appendAttributedString:[[NSAttributedString alloc] initWithString:commentModel.content attributes:attriDict]];
         }
+        
+        comment.totalRange = totalRange;
     }
     
     

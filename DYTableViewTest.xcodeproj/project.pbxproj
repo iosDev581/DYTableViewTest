@@ -392,8 +392,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DYTableViewTest/DYTableViewTest-Prefix.pch";
 				INFOPLIST_FILE = DYTableViewTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "228a1242-d247-45a1-b1ef-11eecf382dbb";
 			};
 			name = Debug;
 		};
@@ -404,8 +406,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DYTableViewTest/DYTableViewTest-Prefix.pch";
 				INFOPLIST_FILE = DYTableViewTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "228a1242-d247-45a1-b1ef-11eecf382dbb";
 			};
 			name = Release;
 		};

@@ -32,6 +32,7 @@
 @property (assign, nonatomic) NSRange tRange;
 
 @property (strong, nonatomic) NSString *content;
+@property (nonatomic) NSRange totalRange;
 
 @end
 
