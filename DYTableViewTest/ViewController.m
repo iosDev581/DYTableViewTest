@@ -26,13 +26,28 @@
 {
     [super viewDidLoad];
     
-    GoCommentModel *commentModel = [[GoCommentModel alloc] init];
-    commentModel.fName = @"张三张三张三张三张三张三张三张三三张三张三张三三张三张三张三三张三张三张三三张三张三张三三张三张三张三";
-    commentModel.tName = @"李四李四李四李四李四李四";
-    commentModel.content = @"前面前面前面前面前面前面ttttttttsdfaeatesttttttttttttsdfaeatesttt 前面前面前面前面 前面前面前面前面ttt 前面 前面    前面前面前面前面前面前面前面前面 中间 中间ttttttttttttsdfaeatesttttttttttttsdfaeatesttttttttttttsdfaeatestttt前面前面前面前面前面！！！！";
-    commentModel.fUserId = @"123";
-    commentModel.tUserId = @"456";
-    _models = @[commentModel];
+    GoCommentModel *commentModel1 = [[GoCommentModel alloc] init];
+    commentModel1.fName = @"张三";
+    commentModel1.tName = @"李四";
+    commentModel1.content = @"内容张三李四张三李四张三李四张三李四张三李四张三李四张三李四张三李abc";
+    commentModel1.fUserId = @"123";
+    commentModel1.tUserId = @"456";
+    
+    GoCommentModel *commentModel2 = [[GoCommentModel alloc] init];
+    commentModel2.fName = @"张三";
+    commentModel2.tName = @"王五";
+    commentModel2.content = @"内容张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三王五张三";
+    commentModel2.fUserId = @"123";
+    commentModel2.tUserId = @"456";
+    
+    GoCommentModel *commentModel3 = [[GoCommentModel alloc] init];
+    commentModel3.fName = @"王五";
+    commentModel3.tName = @"李四";
+    commentModel3.content = @"内容王五李四";
+    commentModel3.fUserId = @"123";
+    commentModel3.tUserId = @"456";
+    
+    _models = @[commentModel1, commentModel2, commentModel3];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, UIScreenWidth, UIScreenHeight - 64.0) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -53,12 +68,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_models count];
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return ([TestTableViewCell heightForCommentModel:[_models firstObject]]);
+    return [TestTableViewCell heightForCommentModels:_models];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,7 +84,7 @@
         cell = [[TestTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
-    [cell setupByCommentModel:[_models firstObject]];
+    [cell setupByCommentModels:_models];
     return cell;
 }
 

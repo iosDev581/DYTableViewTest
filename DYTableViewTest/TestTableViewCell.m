@@ -43,4 +43,13 @@
     [_commentView setupByCommentModel:commentModel];
 }
 
++ (CGFloat)heightForCommentModels:(NSArray *)commentModels
+{
+    return [GoCommentRichView heightForCommentModels:commentModels];
+}
+- (void)setupByCommentModels:(NSArray *)commentModels
+{
+    [_commentView setupByCommentModels:commentModels];
+}
+
 @end

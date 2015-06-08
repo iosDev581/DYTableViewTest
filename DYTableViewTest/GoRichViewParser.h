@@ -15,5 +15,6 @@
 
 + (NSMutableDictionary *)attributesWithConfig:(GoRichViewConfig *)config;
 + (GoRichViewCommentData *)parseCommentModel:(GoCommentModel *)commentModel config:(GoRichViewConfig *)config;
++ (GoRichViewCommentData *)parseCommentModels:(NSArray *)commentModels config:(GoRichViewConfig *)config;
 
 @end

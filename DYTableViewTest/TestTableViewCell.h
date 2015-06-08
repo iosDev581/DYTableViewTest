@@ -14,4 +14,7 @@
 + (CGFloat)heightForCommentModel:(GoCommentModel *)commentModel;
 - (void)setupByCommentModel:(GoCommentModel *)commentModel;
 
++ (CGFloat)heightForCommentModels:(NSArray *)commentModels;
+- (void)setupByCommentModels:(NSArray *)commentModels;
+
 @end
